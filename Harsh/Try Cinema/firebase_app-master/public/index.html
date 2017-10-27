@@ -1,0 +1,99 @@
+<!DOCTYPE html><html>
+ <head>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="texteditor.js"></script>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.min.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+<script src="ServerSide.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="texteditor.css">
+ </head>
+ <body ng-app="TextEditor">
+
+      <div  ng-controller="MyCtrl">
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a href="#">HOME </a></li>
+        <li><a href="#">VIEW POSTS</a></li>
+        <li><a href="#">CONTACT US</a></li>
+      </ul>
+      
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  
+   <div class="col-md-2 col-md-offset-3 jumbotron">   
+   
+   <div id="controls" style="margin-bottom: 10px;">
+    
+   <form ng-submit="add()">
+   <input type="text" id="title" Placeholder="  Title of Blog" ng-model="title"  /><br>
+   <iframe frameborder="0" id="textEditor"  ></iframe>
+  
+  <textarea  ng-model="value" name="text" id='text'  rows="9" cols="63"></textarea>
+ <br>
+ <a id="bold"  >
+     <button class="btn button" type="button"><span class="glyphicon glyphicon-bold" aria-hidden="true"></span> <b>Bold</b></button>
+    </a>
+    <a id="italic" >
+     <button type="button" class="btn button"
+     ><span class="glyphicon glyphicon-italic" aria-hidden="true"><b>Italic</b></button>
+    </a>
+    <a id="Underline" >
+     <button type="button" class="btn button" ><span class="glyphicon glyphicon-text-color" > <b>Underline</b></button>
+    </a>
+    <select id="fonts" class="g-button">
+     <option value="Arial">Arial</option>
+     <option value="Comic Sans MS">Comic Sans MS</option>
+     <option value="Courier New">Courier New</option>
+     <option value="Monotype Corsiva">Monotype</option>
+     <option value="Tahoma New">Tahoma</option>
+     <option value="Times">Times</option>
+     <option value="Trebuchet New">Trebuchet</option>
+     <option value="Ubuntu">Ubuntu</option>
+    </select>
+    <button style="background-color:lightblue;height:37px;" class="btn button" type="submit"> <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"> </span> Submit</button>
+   </div>
+<h3>Upload image</h3>
+ <progress value="0" max="100" id="uploader">0%</progress><br>
+ <p id="info"></p>
+<input type="file" id="image" accept="image/*" ng-model="image"/><br>
+
+ </form>
+ 
+</div>
+ </div>
+ 
+ </body>
+</html>
